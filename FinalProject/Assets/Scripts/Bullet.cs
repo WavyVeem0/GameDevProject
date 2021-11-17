@@ -40,3 +40,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(_direction*speed*Time.deltaTime);
     }
 }
+
+
+
+//просто проверка git'а
