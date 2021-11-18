@@ -16,7 +16,7 @@ public class GunTracker : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
         var angle = Vector2.Angle(Vector2.right,mousePosition-transform.position);
 
-        direction = mousePosition - transform.Find("ShotPoint").position;
+        direction = mousePosition;
         direction.Normalize();
 
         if(angle > 90 && !_facingLeft)
