@@ -8,7 +8,11 @@ public class DoorTrigger : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("smth");
+		//Debug.Log("smth");
 		door.GetComponent<BoxCollider2D>().enabled = true;
+		foreach (Enemy elem in door.GetComponent<Door>().roomEnemy) 
+		{
+			elem.enabled = true;
+		}
 	}
 }

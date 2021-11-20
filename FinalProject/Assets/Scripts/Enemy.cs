@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     {
         if (door.GetComponent<Collider2D>().enabled) 
         {
-            Debug.Log("111");
+            //Debug.Log("111");
         }
     }
 
