@@ -59,9 +59,5 @@ public class Movement : MonoBehaviour
         }
 
         _rb.velocity = new Vector2(horizontal,vertical).normalized * speed;
-        Enemy.playerPosition = pos;  // позиция игрока для врагов
     }
-
-
-
 }
