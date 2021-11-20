@@ -13,25 +13,15 @@ public class Door : MonoBehaviour
 	private void Awake() 
 	{
 		collider = GetComponent<BoxCollider2D>();
+		collider.enabled = false;
 	}
-   
-    private void OnTriggerEnter2D(Collider2D other) 
-    {
-    	
-    	if(roomEnemy.Count > 0) 
-    	{	
-    		_isInside = true;
-    		collider.isTrigger = false;
-    	}
-    	
-    }
 
     private void Update() 
     {
-    	if(roomEnemy.Count<= 0)
+    	if(roomEnemy.Count <= 0)
     	{
     		_isInside = false;
-    		collider.isTrigger = true;
+    		collider.enabled = false;
     	}
     }
 
