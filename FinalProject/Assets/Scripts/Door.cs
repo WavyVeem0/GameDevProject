@@ -17,12 +17,12 @@ public class Door : MonoBehaviour
    
     private void OnTriggerEnter2D(Collider2D other) 
     {
-    	// раскоментить когда будет список врагов в комнате 
-    	//if(roomEnemy.Count > 0) 
-    	//{
+    	
+    	if(roomEnemy.Count > 0) 
+    	{	
     		_isInside = true;
     		collider.isTrigger = false;
-    	//}
+    	}
     	
     }
 
