@@ -8,8 +8,15 @@ public class Enemy : MonoBehaviour
     public Door door;
     public GameObject player;
 
+    private Rigidbody2D _rb;
 
-    
+    private void Awake() 
+    {
+        _rb = GetComponent<Rigidbody2D>();
+        this.enabled = false;
+    }
+
+
     private void Update() 
     {
     	if(health <= 0) 
@@ -21,10 +28,14 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate() 
     {
-        if (door.GetComponent<Collider2D>().enabled) 
-        {
-            //Debug.Log("111");
-        }
+        Vector2 playerPos = player.transform.position;
+        Vector2 currentPos = transform.position;
+
+        transform.position = Vector2.Lerp(currentPos,playerPos,Time.fixedDeltaTime);
+
+
+
+
     }
 
     public void TakeDamage(int dmg) 
