@@ -10,20 +10,20 @@ public class Movement : MonoBehaviour
     public Vector3 pos;
     public static bool facingRight = true;
 
-    void Awake()
+    private Rigidbody2D _rb;
+
+    private void Awake()
     {
     	pos = gameObject.transform.position;
         gun = GameObject.Find("gun");
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.gravityScale = 0;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.W)) 
-        {
-        	pos += Vector3.up;
-        	gameObject.transform.position = pos*Time.fixedDeltaTime*speed;
-
-        }
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         if(Input.GetKey(KeyCode.A))
         {
@@ -38,21 +38,11 @@ public class Movement : MonoBehaviour
         		facingRight = !facingRight;
         	}
 
-        	pos += Vector3.left;
-        	transform.position = pos*Time.fixedDeltaTime*speed;
-        	
          }
-
-        if(Input.GetKey(KeyCode.S)) 
-        {
-        	pos += Vector3.down;
-        	transform.position = pos*Time.fixedDeltaTime*speed;
-        }
 
         if (Input.GetKey(KeyCode.D)) 
         {
-        	pos += Vector3.right;
-        	transform.position = pos*Time.fixedDeltaTime*speed;
+        	
         	if(!facingRight)
         	{
         		Vector3 gunScale = gun.transform.localScale;
@@ -63,10 +53,12 @@ public class Movement : MonoBehaviour
         		gun.transform.localScale = gunScale;
         		facingRight = !facingRight;
         	}
+           
         }
 
-
+        _rb.velocity = new Vector2(horizontal,vertical).normalized * speed;
     }
+
 
 
 }

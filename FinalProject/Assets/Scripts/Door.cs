@@ -4,27 +4,36 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-	[SerializeField]
-	private bool _isInside = false;
+	
+	public List<Enemy> roomEnemy = new List<Enemy>(); 
+
+	[SerializeField]private bool _isInside = false;
 	private BoxCollider2D collider;
 
 	private void Awake() 
 	{
 		collider = GetComponent<BoxCollider2D>();
-		print(collider);
 	}
    
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter2D(Collider2D other) 
     {
-    	_isInside = true;
-    	print("UwU");
-    }
-    private void OnTriggerExit() 
-    {
-    	if(_isInside) 
-    	{
+    	// раскоментить когда будет список врагов в комнате 
+    	//if(roomEnemy.Count > 0) 
+    	//{
+    		_isInside = true;
     		collider.isTrigger = false;
-    	}
-
+    	//}
+    	
     }
+
+    private void Update() 
+    {
+    	if(roomEnemy.Count<= 0)
+    	{
+    		_isInside = false;
+    		collider.isTrigger = true;
+    	}
+    }
+
+
 }
