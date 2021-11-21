@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
 	public HealthScript hpBar;
     public int health = 100;
     public int mentalHealth = 100;
+    public List<Loot> inventory = new List<Loot>();
 
     private void Update() 
     {
@@ -26,4 +27,12 @@ public class PlayerStats : MonoBehaviour
     	health -= dmg;
     	hpBar.SetHealth(health);
     }
+
+    public void AddThing(int id, string name) 
+    {
+    	Loot obj = new Loot();
+    	obj.id = id;
+    	obj.name = name;
+    	inventory.Add(obj);
+    } 
 }

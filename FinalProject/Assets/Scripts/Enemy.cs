@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float fireRate = 1f;
     public Door door;
     public GameObject player;
+    public List<GameObject> Loot = new List<GameObject>();
 
     private Rigidbody2D _rb;
     private float _fireRateCounter;
@@ -24,6 +25,10 @@ public class Enemy : MonoBehaviour
     {
     	if(health <= 0) 
     	{
+            foreach (GameObject elem in Loot) 
+            {
+                Instantiate(elem,transform.position,Quaternion.identity);
+            }
             door.roomEnemy.Remove(this);
     		Destroy(gameObject);
     	}
