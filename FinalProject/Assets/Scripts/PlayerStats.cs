@@ -11,12 +11,18 @@ public class PlayerStats : MonoBehaviour
     public int mentalHealth = 100;
     public List<Loot> inventory = new List<Loot>();
 
+    private void Awake() 
+    {
+    	health = DataHolder.playerLastHp;
+    }
+
     private void Update() 
     {
     	if(health <= 0) 
     	{
     		
     		gameObject.transform.localScale = Vector3.zero;
+    		DataHolder.playerLastHp = 0;
     		tracker.OffAll();
     		tracker.Info(true);
     	}

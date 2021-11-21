@@ -15,6 +15,7 @@ public class InfoTracker : MonoBehaviour
 	{
 		OffAll();
 		Info(false);
+		DataHolder.playerLastHp = player.GetComponent<PlayerStats>().health;
 
 	}
 	public void OffAll() 
