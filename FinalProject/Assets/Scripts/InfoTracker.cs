@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InfoTracker : MonoBehaviour
 {
+	public Image pan;
 	public GameObject player;
 	public GameObject gun;
 	public Canvas canv;
@@ -12,19 +13,27 @@ public class InfoTracker : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+		OffAll();
+		Info(false);
+
+	}
+	public void OffAll() 
+	{
 		player.GetComponent<Movement>().enabled = false;
 		gun.GetComponent<GunShoot>().enabled = false;
 		gun.GetComponent<GunTracker>().enabled = false;
 		canv.enabled = true;
-		Info();
-
 	}
 
-    private void Info() 
+    public void Info(bool isDead) 
     {
     	foreach (Loot elem in player.GetComponent<PlayerStats>().inventory) 
     	{
     		tracker.text += elem.name + "\n";
+    	}
+    	if(isDead) 
+    	{
+    		pan.color = new Color(140,0,0);
     	}
     }
 }

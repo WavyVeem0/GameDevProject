@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+	public InfoTracker tracker;
 	public HealthScript hpBar;
     public int health = 100;
     public int mentalHealth = 100;
@@ -14,8 +15,10 @@ public class PlayerStats : MonoBehaviour
     {
     	if(health <= 0) 
     	{
-    		Destroy(gameObject);
-    		Thread.Sleep(2000);
+    		
+    		gameObject.transform.localScale = Vector3.zero;
+    		tracker.OffAll();
+    		tracker.Info(true);
     	}
     	if(mentalHealth <= 0)
     	{
