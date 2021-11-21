@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
             player.GetComponent<PlayerStats>().TakeDamage(damage);
             _fireRateCounter = fireRate;
         }
-        _fireRateCounter -= Time.deltaTime;
+        _fireRateCounter -= Time.fixedDeltaTime;
 
 
 

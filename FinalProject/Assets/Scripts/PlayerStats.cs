@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+	public HealthScript hpBar;
     public int health = 100;
     public int mentalHealth = 100;
 
@@ -23,5 +24,6 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int dmg) 
     {
     	health -= dmg;
+    	hpBar.SetHealth(health);
     }
 }
