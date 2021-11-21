@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Loot : MonoBehaviour
+[Serializable]
+public class Loot
 {
     public int id = 0;
     public string name = "";    

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
@@ -14,6 +15,7 @@ public class PlayerStats : MonoBehaviour
     	if(health <= 0) 
     	{
     		Destroy(gameObject);
+    		Thread.Sleep(2000);
     	}
     	if(mentalHealth <= 0)
     	{
