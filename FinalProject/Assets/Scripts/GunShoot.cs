@@ -51,9 +51,10 @@ public class GunShoot : MonoBehaviour
         else if(_isReload && _reloadCounter <= 0)
         {
             if(DataHolder.totalAmmo > StartMag) 
-            {
+            {   
+                 DataHolder.totalAmmo -= StartMag + Mag;
                  Mag = StartMag;
-                 DataHolder.totalAmmo -= StartMag;
+                 
             }
             else 
             {
