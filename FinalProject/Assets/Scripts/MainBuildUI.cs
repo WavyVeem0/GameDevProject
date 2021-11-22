@@ -42,4 +42,13 @@ public class MainBuildUI : MonoBehaviour
     		_recoveryCounter -= Time.deltaTime;
     	}
     }
+
+    public void Upgrade() 
+    {
+    	if(DataHolder.totalMetal >= 10) 
+    	{
+    		DataHolder.totalMetal -= 10;
+    		oneHpRecovery /= 2;
+    	}
+    }
 }

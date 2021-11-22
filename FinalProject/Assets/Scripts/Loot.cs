@@ -8,4 +8,5 @@ public class Loot
 {
     public int id = 0;
     public string name = "";    
+    public int number = 10;
 }

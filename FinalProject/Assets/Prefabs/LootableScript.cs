@@ -9,6 +9,7 @@ public class LootableScript : MonoBehaviour
 
     public string name;
     public int id;
+    [SerializeField]public int number;
 
     private void Start() 
     {
@@ -19,7 +20,7 @@ public class LootableScript : MonoBehaviour
     {
     	if(other.CompareTag("Player")) 
     	{
-    		player.AddThing(id,name);
+    		player.AddThing(id,name,number);
     		Destroy(gameObject);
     	}
     }

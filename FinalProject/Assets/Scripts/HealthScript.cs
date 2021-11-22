@@ -9,6 +9,10 @@ public class HealthScript : MonoBehaviour
     public Image fill;
     public Gradient gradient;
 
+    public void Awake() 
+    {
+    	SetHealth(DataHolder.playerLastHp);
+    }
     public void SetHealth(int hp) 
     {
     	slider.value = hp;

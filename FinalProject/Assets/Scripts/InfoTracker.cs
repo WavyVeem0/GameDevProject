@@ -30,11 +30,17 @@ public class InfoTracker : MonoBehaviour
     {
     	foreach (Loot elem in player.GetComponent<PlayerStats>().inventory) 
     	{
-    		tracker.text += elem.name + "\n";
+    		tracker.text += elem.name + " x" + elem.number + " \n";
+    
+    		if (elem.name == "Metal")
+    		{
+    			DataHolder.totalMetal += elem.number;
+    		}
     	}
     	if(isDead) 
     	{
     		pan.color = new Color(140,0,0);
     	}
+    	
     }
 }

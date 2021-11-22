@@ -50,13 +50,23 @@ public class GunShoot : MonoBehaviour
         }
         else if(_isReload && _reloadCounter <= 0)
         {
-            Mag = StartMag;
+            if(DataHolder.totalAmmo > StartMag) 
+            {
+                 Mag = StartMag;
+                 DataHolder.totalAmmo -= StartMag;
+            }
+            else 
+            {
+                Mag = DataHolder.totalAmmo;
+                DataHolder.totalAmmo = 0;
+            }
             _reloadCounter = ReloadTime; 
             _isReload = false;
             Bar.Disable();
         }
 
         BulletCounter.text = Mag.ToString();
+
         
     }
 }

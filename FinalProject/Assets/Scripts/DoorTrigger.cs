@@ -12,7 +12,16 @@ public class DoorTrigger : MonoBehaviour
 		door.GetComponent<BoxCollider2D>().enabled = true;
 		foreach (Enemy elem in door.GetComponent<Door>().roomEnemy) 
 		{
-			elem.enabled = true;
+			if(elem != null) 
+			{
+				elem.enabled = true;
+			}
+			else
+			{
+				door.GetComponent<Door>().roomEnemy.Remove(elem);
+			}
+
+			
 		}
 	}
 }

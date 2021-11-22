@@ -39,11 +39,15 @@ public class PlayerStats : MonoBehaviour
     	hpBar.SetHealth(health);
     }
 
-    public void AddThing(int id, string name) 
+    public void AddThing(int id, string name, int number) 
     {
     	Loot obj = new Loot();
     	obj.id = id;
     	obj.name = name;
+    	if (name == "Ammo") 
+    	{
+    		DataHolder.totalAmmo += number;
+    	}
     	inventory.Add(obj);
     } 
 }
