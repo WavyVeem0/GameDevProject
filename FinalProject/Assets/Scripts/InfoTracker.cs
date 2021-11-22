@@ -32,7 +32,7 @@ public class InfoTracker : MonoBehaviour
     	{
     		tracker.text += elem.name + " x" + elem.number + " \n";
     
-    		if (elem.name == "Metal")
+    		if (elem.name == "Metal" && !isDead)
     		{
     			DataHolder.totalMetal += elem.number;
     		}

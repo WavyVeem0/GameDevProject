@@ -1584,6 +1584,10 @@ PrefabInstance:
       propertyPath: fireRate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 451284435424247954, guid: bbd5b096f1a9f804087aa552e9f29aeb, type: 3}
+      propertyPath: Loot.Array.data[0]
+      value: 
+      objectReference: {fileID: 576433640984333097, guid: cbb648ba208b6ea4ca69ac11b224255c, type: 3}
     - target: {fileID: 451284435424247956, guid: bbd5b096f1a9f804087aa552e9f29aeb, type: 3}
       propertyPath: m_RootOrder
       value: 2
